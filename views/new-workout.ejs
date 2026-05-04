@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>New Workout</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script defer src="/js/validation.js"></script>
+</head>
+<body class="p-3">
+  <div class="container">
+    <div style="text-align:right; margin-bottom: 10px;">
+      Goal: <%= fitnessGoal %> | <a href="/logout">Logout</a>
+    </div>
+    <h1>New Workout</h1>
+
+    <form class="needs-validation" novalidate method="POST" action="/workout">
+      <div class="mb-3">
+        <label class="form-label" for="workoutType">Workout Type</label>
+        <input class="form-control" id="workoutType" name="workoutType" type="text" value="<%= workout.workoutType || '' %>" required />
+        <div class="invalid-feedback">Workout type is required.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="duration">Duration</label>
+        <input class="form-control" id="duration" name="duration" type="number" min="1" step="1" value="<%= workout.duration || '' %>" required />
+        <div class="invalid-feedback">Duration is required.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="caloriesBurned">Calories Burned</label>
+        <input class="form-control" id="caloriesBurned" name="caloriesBurned" type="number" min="0" step="1" value="<%= workout.caloriesBurned || '' %>" required />
+        <div class="invalid-feedback">Calories burned is required.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="workoutDate">Workout Date</label>
+        <input class="form-control" id="workoutDate" name="workoutDate" type="date" value="<%= workout.workoutDate ? new Date(workout.workoutDate).toISOString().slice(0, 10) : '' %>" required />
+        <div class="invalid-feedback">Workout date is required.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="notes">Notes</label>
+        <textarea class="form-control" id="notes" name="notes" rows="4" required><%= workout.notes || '' %></textarea>
+        <div class="invalid-feedback">Notes are required.</div>
+      </div>
+      <button class="btn btn-primary" type="submit">Save Workout</button>
+      <a class="btn btn-secondary" href="/workouts">Cancel</a>
+    </form>
+  </div>
+</body>
+</html>

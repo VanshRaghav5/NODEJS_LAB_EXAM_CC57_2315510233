@@ -1,0 +1,29 @@
+Create schema-models using the structure given below (User and Workout).
+→ Use Bootstrap for client-side form validation.
+Implement complete CRUD operations for workouts using the following routes:
+● GET /workouts
+● GET /workout/new
+● POST /workout
+● GET /workouts/:id
+● GET /workouts/:id/edit
+● PUT /workouts/:id
+● DELETE /workouts/:id
+Note: The workoutType should not be editable after creation.
+Ensure the forms match the schema exactly:
+● User: username, password, age, gender, fitnessGoal
+● Workout: workoutType, duration, caloriesBurned, workoutDate, notes
+Use Bootstrap validation for numeric fields, date picking, required inputs, and gender
+dropdown.
+Implement Passport authentication using the following routes:
+● /register
+● /login
+● /logout
+Show the user’s fitness goal in the top-right corner after login.
+Use express-session and Passport to manage authentication sessions.
+Maintain proper folder structure:
+● public/ – Bootstrap + custom CSS
+● views/ – templates like new-workout.ejs, edit-workout.ejs, etc.
+● models/ – separate user.js and workout.js files
+● routes/ – individual route files for user and workout functionality
+Do not include dummy data or seed files.
+Do not upload node_modules or package-lock.json.
